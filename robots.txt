@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kazisafii.co.ke/sitemap.xml
