@@ -143,5 +143,23 @@ if html.count('class="nojs-home"') != 1:
     raise SystemExit(f"Expected exactly one no-JavaScript fallback; found {html.count('class=\"nojs-home\"')}.")
 if html.count('class="seo-footer-links"') != 1:
     raise SystemExit(f"Expected exactly one static SEO footer block; found {html.count('class=\"seo-footer-links\"')}.")
+# Apply the supplied double-i brand artwork to both header and footer logos.
+logo_assets = """
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.lgi').forEach(function (img) {
+    img.src = '/assets/kazisafii-logo.webp';
+    img.alt = 'Kazisafii Print & Gifts logo';
+  });
+  document.querySelectorAll('.lgw').forEach(function (img) {
+    img.src = '/assets/kazisafii-logo-white.webp';
+    img.alt = 'Kazisafii Print & Gifts logo';
+  });
+});
+</script>
+"""
+if "assets/kazisafii-logo.webp" not in html:
+    html = replace_once(r'(</body>)', logo_assets + r'\1', html, "double-i logo asset script")
+
 PAGE.write_text(html, encoding="utf-8")
 print(f"Homepage SEO updated ({len(html)} characters); verified one static fallback and one SEO footer block.")
