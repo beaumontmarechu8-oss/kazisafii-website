@@ -1,0 +1,48 @@
+name: Publish Kazisafii SEO and image improvements
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "scripts/seo-static-boost.py"
+      - "printing-portfolio-nairobi/**"
+      - "sitemap.xml"
+      - ".github/workflows/seo-static-boost.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: kazisafii-seo-static-boost
+  cancel-in-progress: false
+
+jobs:
+  update-homepage:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out current main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Add crawlable homepage service content and SEO metadata
+        run: python scripts/seo-static-boost.py
+      - name: Validate and publish homepage update
+        run: |
+          python -m py_compile scripts/seo-static-boost.py
+          git diff --check
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          if git diff --cached --quiet; then
+            echo "Homepage SEO changes already present."
+            exit 0
+          fi
+          git commit -m "Improve Kazisafii homepage crawlability and SEO"
+          git push origin HEAD:main
