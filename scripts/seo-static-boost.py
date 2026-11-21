@@ -6,6 +6,36 @@ ROOT = Path(__file__).resolve().parent.parent
 PAGE = ROOT / "index.html"
 html = PAGE.read_text(encoding="utf-8")
 
+# Keep the approved hero design, but defer expensive video decoding until the hero is visible.
+if "DEFER_HERO_REEL" not in html:
+    html = html.replace(
+        '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">',
+        '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n'
+        '<link rel="preconnect" href="https://fonts.googleapis.com">\n'
+        '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
+    )
+    html = html.replace('preload="auto"></video>', 'preload="none"></video>')
+    old_set = """function rlSet(L,i){const c=REEL[i];L.pst.style.backgroundImage=\`url(\${c.p})\`;L.pst.classList.remove('kb');void L.pst.offsetWidth;if(!RL.vid||RM)L.pst.classList.add('kb');L.vid.classList.remove('on');
+if(RL.vid&&!RM){try{if(L.vid.dataset.i!=i){L.vid.dataset.i=i;L.vid.src=b2u(i)}L.vid.currentTime=0;const p=L.vid.play();if(p&&p.catch)p.catch(e=>{if(e&&e.name=='NotAllowedError')vfail()})}catch(e){}}}"""
+    new_set = """function rlSet(L,i){const c=REEL[i];L.pst.style.backgroundImage=\`url(\${c.p})\`;L.pst.classList.remove('kb');void L.pst.offsetWidth;if(!RL.vid||RM||!RL.vis)L.pst.classList.add('kb');L.vid.classList.remove('on');
+if(RL.vid&&!RM&&RL.vis){try{if(L.vid.dataset.i!=i){L.vid.dataset.i=i;L.vid.src=b2u(i)}L.vid.currentTime=0;const p=L.vid.play();if(p&&p.catch)p.catch(e=>{if(e&&e.name=='NotAllowedError')vfail()})}catch(e){}}}"""
+    if old_set not in html:
+        raise SystemExit("Could not locate the original hero reel setup function.")
+    html = html.replace(old_set, new_set, 1)
+    old_pre = "function rlPre(i){if(!RL.vid||RM)return;"
+    new_pre = "function rlPre(i){if(!RL.vid||RM||!RL.vis)return;"
+    if old_pre not in html:
+        raise SystemExit("Could not locate the original hero reel preloader.")
+    html = html.replace(old_pre, new_pre, 1)
+    old_observer = "new IntersectionObserver(es=>{RL.vis=es[0].isIntersecting?1:0;try{RL.vis?(!RL.user&&RL.vid&&RL.front.vid.play().catch(()=>{})):RL.front.vid.pause()}catch(e){}},{threshold:.15}).observe($('#xh'))"
+    new_observer = "new IntersectionObserver(es=>{RL.vis=es[0].isIntersecting?1:0;try{if(RL.vis){if(!RL.user&&RL.vid){if(RL.front.vid.dataset.i==null){rlSet(RL.front,RL.i);setTimeout(()=>{if(RL.vis)rlPre((RL.i+1)%REEL.length)},2200)}else RL.front.vid.play().catch(()=>{})}}else RL.front.vid.pause()}catch(e){}},{threshold:.15}).observe($('#xh'))"
+    if old_observer not in html:
+        raise SystemExit("Could not locate the original hero reel visibility observer.")
+    html = html.replace(old_observer, new_observer, 1)
+    html = html.replace('id="DEFER_HERO_REEL"', 'id="DEFER_HERO_REEL"')
+    html = html.replace('</head>', '<!-- DEFER_HERO_REEL -->\n</head>', 1)
+
+
 TITLE = "Printing Services in Nairobi, Kenya | Kazisafii"
 DESCRIPTION = "Printing services in Nairobi: business cards, flyers, banners, stickers, apparel and personalised gifts. Browse products, pay by M-Pesa and request a quote."
 
