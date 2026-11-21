@@ -92,6 +92,7 @@ if '"@id": "https://kazisafii.co.ke/#organization"' not in html:
 
 html = html.replace('alt="Kazisafi print and gifts"', 'alt="Kazisafii Print &amp; Gifts logo"')
 html = html.replace('aria-label="Kazisafi home"', 'aria-label="Kazisafii Print and Gifts home"')
+html = html.replace("<h2>Put your heart on it.</h2>", "<h1>Put your heart on it.</h1>")
 
 html = html.replace(".xh h1{font-size:clamp(44px,6.4vw,92px);line-height:.93;letter-spacing:-.045em;margin:0 0 18px;color:#fff}", ".xh h1,.xh h2{font-size:clamp(44px,6.4vw,92px);line-height:.93;letter-spacing:-.045em;margin:0 0 18px;color:#fff}")
 
