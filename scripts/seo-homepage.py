@@ -79,22 +79,21 @@ html = html.replace('alt="Kazisafi print and gifts"', 'alt="Kazisafii Print & Gi
 html = html.replace('© Kazisafi. All rights reserved.', '© Kazisafii Print & Gifts. All rights reserved.')
 
 footer_links = '''<div class="seo-footer-links"><b>Printing &amp; gifts</b><a href="/printing-services-nairobi/">Printing services in Nairobi</a><a href="/business-card-printing-nairobi/">Business card printing</a><a href="/flyer-printing-nairobi/">Flyer printing</a><a href="/banner-printing-nairobi/">Banner printing</a><a href="/sticker-printing-nairobi/">Sticker printing</a><a href="/mug-printing-nairobi/">Mug printing</a><a href="/t-shirt-printing-nairobi/">T-shirt printing</a><a href="/roll-up-banner-printing-nairobi/">Roll-up banner printing</a><a href="/poster-printing-nairobi/">Poster printing</a><a href="/personalised-gifts-nairobi/">Personalised gifts</a><a href="/corporate-gifts-branded-merchandise-nairobi/">Corporate gifts</a><a href="/about-kazisafii/">About Kazisafii</a><a href="/printing-guides-nairobi/">Printing guides</a><a href="/print-ready-artwork-guide-nairobi/">Print-ready artwork checklist</a><a href="/business-card-finishes-guide-nairobi/">Business-card finishes guide</a><a href="/contact-kazisafii/">Contact Kazisafii</a></div>'''
-if 'class="seo-footer-links"' not in html:
+if 'class="seo-footer-links"' in html:
+    html = replace_once(
+        r'<div class="seo-footer-links">[\s\S]*?</div>',
+        lambda match: footer_links,
+        html,
+        "replace static footer service links",
+    )
+else:
     html = replace_once(
         r'(<a href="#shop" onclick="G=-1">All products</a>)',
-        r'\1' + footer_links,
+        lambda match: match.group(1) + footer_links,
         html,
-        "static footer service links",
+        "insert static footer service links",
     )
 
-if '/printing-guides-nairobi/' not in html:
-    guide_footer = '<a href="/printing-guides-nairobi/">Printing guides</a><a href="/print-ready-artwork-guide-nairobi/">Print-ready artwork checklist</a><a href="/business-card-finishes-guide-nairobi/">Business-card finishes guide</a>'
-    html = replace_once(
-        r'(<div class="seo-footer-links">[\s\S]*?<a href="/contact-kazisafii/">Contact Kazisafii</a>)',
-        r'\\1' + guide_footer,
-        html,
-        "homepage guide footer links",
-    )
 
 
 seo_section = '''<section class="sec seo-hub"><h2>Printing services and personalised gifts in Nairobi</h2><p>Kazisafii Print &amp; Gifts brings business printing, branded merchandise and personalised gifts together in one online shop. Browse the product pages below for current starting prices, minimum quantities and available options. We serve Nairobi and arrange delivery beyond Nairobi; confirm the final price and delivery details for your order.</p><div class="seo-links"><a href="/printing-services-nairobi/">Printing services in Nairobi</a><a href="/business-card-printing-nairobi/">Business card printing</a><a href="/flyer-printing-nairobi/">Flyer printing</a><a href="/banner-printing-nairobi/">Banner printing</a><a href="/roll-up-banner-printing-nairobi/">Roll-up banner printing</a><a href="/poster-printing-nairobi/">Poster printing</a><a href="/sticker-printing-nairobi/">Sticker and label printing</a><a href="/t-shirt-printing-nairobi/">Custom T-shirt printing</a><a href="/mug-printing-nairobi/">Mug printing</a><a href="/personalised-gifts-nairobi/">Personalised gifts</a><a href="/corporate-gifts-branded-merchandise-nairobi/">Corporate gifts and branded merchandise</a></div></section>\n'''
