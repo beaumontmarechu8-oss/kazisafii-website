@@ -15,9 +15,9 @@ if "DEFER_HERO_REEL" not in html:
         '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
     )
     html = html.replace('preload="auto"></video>', 'preload="none"></video>')
-    old_set = """function rlSet(L,i){const c=REEL[i];L.pst.style.backgroundImage=\`url(\${c.p})\`;L.pst.classList.remove('kb');void L.pst.offsetWidth;if(!RL.vid||RM)L.pst.classList.add('kb');L.vid.classList.remove('on');
+    old_set = """function rlSet(L,i){const c=REEL[i];L.pst.style.backgroundImage=`url(\${c.p})`;L.pst.classList.remove('kb');void L.pst.offsetWidth;if(!RL.vid||RM)L.pst.classList.add('kb');L.vid.classList.remove('on');
 if(RL.vid&&!RM){try{if(L.vid.dataset.i!=i){L.vid.dataset.i=i;L.vid.src=b2u(i)}L.vid.currentTime=0;const p=L.vid.play();if(p&&p.catch)p.catch(e=>{if(e&&e.name=='NotAllowedError')vfail()})}catch(e){}}}"""
-    new_set = """function rlSet(L,i){const c=REEL[i];L.pst.style.backgroundImage=\`url(\${c.p})\`;L.pst.classList.remove('kb');void L.pst.offsetWidth;if(!RL.vid||RM||!RL.vis)L.pst.classList.add('kb');L.vid.classList.remove('on');
+    new_set = """function rlSet(L,i){const c=REEL[i];L.pst.style.backgroundImage=`url(\${c.p})`;L.pst.classList.remove('kb');void L.pst.offsetWidth;if(!RL.vid||RM||!RL.vis)L.pst.classList.add('kb');L.vid.classList.remove('on');
 if(RL.vid&&!RM&&RL.vis){try{if(L.vid.dataset.i!=i){L.vid.dataset.i=i;L.vid.src=b2u(i)}L.vid.currentTime=0;const p=L.vid.play();if(p&&p.catch)p.catch(e=>{if(e&&e.name=='NotAllowedError')vfail()})}catch(e){}}}"""
     if old_set not in html:
         raise SystemExit("Could not locate the original hero reel setup function.")
