@@ -62,10 +62,12 @@ if '"@id": "https://kazisafii.co.ke/#organization"' not in html:
 
 html = html.replace('alt="Kazisafi print and gifts"', 'alt="Kazisafii Print &amp; Gifts logo"')
 html = html.replace('aria-label="Kazisafi home"', 'aria-label="Kazisafii Print and Gifts home"')
+html = html.replace("<h1>Put your heart on it.</h1>", "<h2>Put your heart on it.</h2>")
+html = html.replace(".xh h1{font-size:clamp(44px,6.4vw,92px);line-height:.93;letter-spacing:-.045em;margin:0 0 18px;color:#fff}", ".xh h1,.xh h2{font-size:clamp(44px,6.4vw,92px);line-height:.93;letter-spacing:-.045em;margin:0 0 18px;color:#fff}")
 
 seo_section = '''
 <section class="kz-seo-bottom" aria-labelledby="kz-printing-services-heading">
-  <h2 id="kz-printing-services-heading">Printing services and personalised gifts in Nairobi</h2>
+  <h1 id="kz-printing-services-heading">Printing services and personalised gifts in Nairobi</h1>
   <p>Kazisafii Print &amp; Gifts brings everyday business printing, large-format displays, branded merchandise and personalised gifts together in one online shop. Browse product information, compare available options and contact the team for a quotation. Orders can be paid for using M-Pesa, with collection or delivery arrangements confirmed with the team.</p>
   <div class="kz-seo-links">
     <a href="/printing-services-nairobi/">All printing services in Nairobi</a>
@@ -91,7 +93,7 @@ if 'class="kz-seo-bottom"' not in html:
 
 style = '''
 .kz-seo-bottom{max-width:1100px;margin:12px auto 34px;padding:26px 18px 12px;border-top:2px solid var(--line);color:var(--ink)}
-.kz-seo-bottom h2{margin:0 0 12px;font-size:clamp(24px,4vw,32px)}
+.kz-seo-bottom h1,.kz-seo-bottom h2{margin:0 0 12px;font-size:clamp(24px,4vw,32px)}
 .kz-seo-bottom p{max-width:900px;color:var(--mut);margin:0 0 16px;line-height:1.65}
 .kz-seo-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:9px}
 .kz-seo-links a{display:block;padding:11px 13px;border:1px solid var(--line);border-radius:10px;color:var(--ink);background:var(--soft);font-weight:650;text-decoration:none}
