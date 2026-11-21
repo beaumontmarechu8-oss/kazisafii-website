@@ -2,5 +2,3 @@ User-agent: *
 Allow: /
 
 Sitemap: https://kazisafii.co.ke/sitemap.xml
-
-# Kazisafii sitemap includes the current service, gift, about and contact pages.
