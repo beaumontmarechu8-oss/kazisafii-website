@@ -112,3 +112,201 @@ PAGE.write_text(html, encoding="utf-8")
 print(f"Updated homepage SEO head and appended crawlable printing-services content ({len(html)} characters).")
 
 # Re-run the homepage SEO build after adding this workflow to the default branch.
+
+
+# Add genuine catalogue photography to each matching service page.
+SERVICE_PHOTO_PAGES = {
+    "printing-services-nairobi": {
+        "heading": "See products from the Kazisafii print catalogue",
+        "items": [
+            ("business-card-spot-uv-printing-nairobi.webp", "Business card printing in Nairobi"),
+            ("flyer-brochure-printing-nairobi.webp", "Flyer and brochure printing in Nairobi"),
+            ("banner-printing-nairobi.webp", "Large-format banner printing in Nairobi"),
+            ("vinyl-sticker-printing-nairobi.webp", "Custom vinyl sticker printing in Nairobi"),
+        ],
+    },
+    "business-card-printing-nairobi": {
+        "heading": "Business card printing examples",
+        "items": [("business-card-spot-uv-printing-nairobi.webp", "Printed business cards with premium Spot UV finish")],
+    },
+    "banner-printing-nairobi": {
+        "heading": "Banner and display printing examples",
+        "items": [
+            ("banner-printing-nairobi.webp", "Custom printed banner"),
+            ("x-banner-printing-nairobi.webp", "X-banner display printing"),
+            ("roll-up-banner-printing-nairobi.webp", "Roll-up banner printing"),
+        ],
+    },
+    "flyer-printing-nairobi": {
+        "heading": "Flyer and promotional print examples",
+        "items": [
+            ("flyer-brochure-printing-nairobi.webp", "Printed flyers and brochures"),
+            ("menu-printing-nairobi.webp", "Custom printed menus"),
+        ],
+    },
+    "sticker-printing-nairobi": {
+        "heading": "Sticker and label printing examples",
+        "items": [
+            ("vinyl-sticker-printing-nairobi.webp", "Custom vinyl sticker printing"),
+            ("label-sticker-printing-nairobi.webp", "Printed product label stickers"),
+            ("car-decal-printing-nairobi.webp", "Custom car decal printing"),
+        ],
+    },
+    "roll-up-banner-printing-nairobi": {
+        "heading": "Portable display banner examples",
+        "items": [
+            ("roll-up-banner-printing-nairobi.webp", "Printed roll-up banner display"),
+            ("x-banner-printing-nairobi.webp", "Printed X-banner display"),
+            ("backdrop-banner-printing-nairobi.webp", "Custom event backdrop banner"),
+        ],
+    },
+    "t-shirt-printing-nairobi": {
+        "heading": "Custom apparel printing examples",
+        "items": [
+            ("custom-t-shirt-printing-nairobi.webp", "Custom printed T-shirt"),
+            ("polo-shirt-printing-nairobi.webp", "Custom branded polo shirt"),
+            ("hoodie-printing-nairobi.webp", "Custom printed hoodie"),
+        ],
+    },
+    "mug-printing-nairobi": {
+        "heading": "Custom mug and drinkware examples",
+        "items": [
+            ("custom-mug-printing-nairobi.webp", "Custom printed ceramic mug"),
+            ("enamel-mug-printing-nairobi.webp", "Custom enamel mug"),
+            ("thermal-travel-mug-printing-nairobi.webp", "Custom thermal travel mug"),
+        ],
+    },
+    "photo-printing-personalised-photo-gifts-nairobi": {
+        "heading": "Photo printing and personalised gift examples",
+        "items": [
+            ("photo-printing-nairobi.webp", "Printed photo prints"),
+            ("mounted-photo-printing-nairobi.webp", "Mounted photo printing"),
+            ("photo-framing-nairobi.webp", "Custom photo framing"),
+            ("canvas-printing-nairobi.webp", "Canvas photo printing"),
+        ],
+    },
+    "personalised-gifts-nairobi": {
+        "heading": "Personalised gift ideas from the catalogue",
+        "items": [
+            ("custom-mug-printing-nairobi.webp", "Personalised photo and branded mugs"),
+            ("custom-water-bottle-printing-nairobi.webp", "Custom printed water bottles"),
+            ("gift-voucher-printing-nairobi.webp", "Printed gift vouchers"),
+            ("photo-printing-nairobi.webp", "Photo prints and gifts"),
+        ],
+    },
+    "corporate-gifts-branded-merchandise-nairobi": {
+        "heading": "Branded merchandise and corporate gift examples",
+        "items": [
+            ("branded-tote-bag-printing-nairobi.webp", "Branded tote bag"),
+            ("custom-cap-printing-nairobi.webp", "Custom branded caps"),
+            ("custom-mug-printing-nairobi.webp", "Custom printed mugs"),
+            ("custom-water-bottle-printing-nairobi.webp", "Branded water bottles"),
+        ],
+    },
+    "bags-and-packaging-printing-nairobi": {
+        "heading": "Branded bags and packaging examples",
+        "items": [
+            ("branded-tote-bag-printing-nairobi.webp", "Custom branded tote bags"),
+            ("jute-bag-printing-nairobi.webp", "Branded jute bags"),
+            ("kraft-bag-printing-nairobi.webp", "Printed kraft bags"),
+            ("custom-packaging-box-printing-nairobi.webp", "Custom printed packaging boxes"),
+        ],
+    },
+    "banners-event-displays-printing-nairobi": {
+        "heading": "Event display and banner examples",
+        "items": [
+            ("x-banner-printing-nairobi.webp", "X-banner display printing"),
+            ("roll-up-banner-printing-nairobi.webp", "Roll-up banner printing"),
+            ("teardrop-banner-printing-nairobi.webp", "Tear drop banner printing"),
+            ("pop-up-banner-printing-nairobi.webp", "Pop-up banner display"),
+            ("backdrop-banner-printing-nairobi.webp", "Printed event backdrop"),
+        ],
+    },
+    "flyers-brochures-printing-nairobi": {
+        "heading": "Flyers, brochures and promotional print examples",
+        "items": [
+            ("flyer-brochure-printing-nairobi.webp", "Printed flyers and brochures"),
+            ("menu-printing-nairobi.webp", "Custom printed menus"),
+            ("funeral-program-printing-nairobi.webp", "Printed funeral programmes"),
+            ("booklet-document-printing-nairobi.webp", "Booklet and document printing"),
+        ],
+    },
+    "custom-apparel-printing-nairobi": {
+        "heading": "Custom apparel and workwear examples",
+        "items": [
+            ("custom-t-shirt-printing-nairobi.webp", "Custom printed T-shirts"),
+            ("polo-shirt-printing-nairobi.webp", "Custom branded polo shirts"),
+            ("hoodie-printing-nairobi.webp", "Custom printed hoodies"),
+            ("custom-jersey-printing-nairobi.webp", "Custom printed sports jerseys"),
+            ("reflector-jacket-printing-nairobi.webp", "Custom reflector jackets"),
+        ],
+    },
+}
+
+PHOTO_STYLE = """
+.service-photo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px;margin:20px 0}
+.service-photo{margin:0;background:#fff;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.service-photo img{display:block;width:100%;aspect-ratio:4/3;object-fit:contain;background:#fff;padding:10px}
+.service-photo figcaption{padding:10px 13px;font-size:.92rem;color:var(--ink)}
+.service-photo-more{margin-top:10px;font-weight:700}
+"""
+
+for slug, config in SERVICE_PHOTO_PAGES.items():
+    service_file = ROOT / slug / "index.html"
+    if not service_file.exists():
+        raise SystemExit(f"Expected service page is missing: {service_file}")
+    page_html = service_file.read_text(encoding="utf-8")
+    if 'class="service-photo-grid"' not in page_html:
+        hero_start = page_html.find('class="hero"')
+        section_start = page_html.find("<section", hero_start)
+        if hero_start < 0 or section_start < 0:
+            raise SystemExit(f"Could not find hero and first section in {slug}")
+        figures = []
+        for filename, alt_text in config["items"]:
+            image_url = f"/assets/printing-photos/{filename}"
+            figures.append(
+                f'<figure class="service-photo"><img src="{image_url}" '
+                f'alt="{alt_text}" loading="lazy" decoding="async" width="720" height="540">'
+                f'<figcaption>{alt_text}</figcaption></figure>'
+            )
+        photo_section = (
+            f'<section class="service-photo-section" aria-label="{config["heading"]}">'
+            f'<h2>{config["heading"]}</h2>'
+            '<p>Browse actual product examples from the Kazisafii catalogue. '
+            'Open the full portfolio to compare more print and gift products.</p>'
+            '<div class="service-photo-grid">' + "\n".join(figures) + '</div>'
+            '<p class="service-photo-more"><a href="/printing-portfolio-nairobi/">'
+            'View the full Kazisafii printing and product photo portfolio</a></p>'
+            '</section>\n'
+        )
+        page_html = page_html[:section_start] + photo_section + page_html[section_start:]
+    if ".service-photo-grid{" not in page_html:
+        if "</style>" not in page_html:
+            raise SystemExit(f"Could not find style block in {slug}")
+        page_html = page_html.replace("</style>", PHOTO_STYLE + "</style>", 1)
+    og_image = f"https://kazisafii.co.ke/assets/printing-photos/{config['items'][0][0]}"
+    if 'property="og:image"' not in page_html:
+        social_meta = (
+            f'<meta property="og:image" content="{og_image}">\n'
+            f'<meta property="og:image:alt" content="{config["items"][0][1]}">\n'
+            '<meta name="twitter:card" content="summary_large_image">\n'
+            f'<meta name="twitter:image" content="{og_image}">\n'
+        )
+        if "</head>" not in page_html:
+            raise SystemExit(f"Could not find closing head tag in {slug}")
+        page_html = page_html.replace("</head>", social_meta + "</head>", 1)
+    else:
+        page_html = re.sub(
+            r'<meta\s+property=["\']og:image["\']\s+content=["\'][^"\']*["\']\s*/?>',
+            f'<meta property="og:image" content="{og_image}">',
+            page_html,
+            count=1,
+            flags=re.I,
+        )
+    if page_html.count('class="service-photo-grid"') != 1:
+        raise SystemExit(f"Service photo section validation failed: {slug}")
+    if len(re.findall(r"<h1\b", page_html, flags=re.I)) != 1:
+        raise SystemExit(f"Unexpected H1 count after photo insertion: {slug}")
+    service_file.write_text(page_html, encoding="utf-8")
+    print(f"Added {len(config['items'])} relevant product photos to {slug}")
+
