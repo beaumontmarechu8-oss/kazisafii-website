@@ -1,10 +1,64 @@
 from pathlib import Path
+import base64
 import json
 import re
 
 ROOT = Path(__file__).resolve().parent.parent
 PAGE = ROOT / "index.html"
 html = PAGE.read_text(encoding="utf-8")
+
+# Move the large hero video reel out of the initial HTML so the shop can paint first.
+if "const REEL=" in html:
+    reel_match = re.search(r"const REEL=(\[.*?\]);", html, flags=re.S)
+    if not reel_match:
+        raise SystemExit("Could not extract the homepage hero reel data.")
+    reel_data = json.loads(reel_match.group(1))
+    (ROOT / "reel-data.json").write_text(
+        json.dumps(reel_data, separators=(",", ":"), ensure_ascii=False),
+        encoding="utf-8",
+    )
+    poster_data = reel_data[0]["p"].split(",", 1)[1]
+    (ROOT / "assets" / "hero-reel-poster.webp").write_bytes(base64.b64decode(poster_data))
+    loader = """let REEL=[];
+let REEL_LOADING=false;
+function loadReel(){
+  if(REEL.length||REEL_LOADING)return;
+  REEL_LOADING=true;
+  setTimeout(()=>{
+    if(!$('#xh')){REEL_LOADING=false;return}
+    fetch('/reel-data.json',{cache:'force-cache'})
+      .then(r=>{if(!r.ok)throw new Error('Hero reel unavailable');return r.json()})
+      .then(data=>{
+        REEL=data;REEL_LOADING=false;
+        const prog=$('#prog');
+        if(prog)prog.innerHTML=REEL.map((r,k)=>'<i onclick="rlJump('+k+')" role="button" aria-label="Show clip '+(k+1)+'"></i>').join('');
+        if(!location.hash||location.hash==='#home')hbind();
+      })
+      .catch(()=>{REEL_LOADING=false;const el=$('#rl');if(el)el.classList.add('novid')});
+  },1200);
+}
+"""
+    html = html[:reel_match.start()] + loader + html[reel_match.end():]
+    old_home = "if(r=='home')hbind();if(r=='shop')cards()"
+    new_home = "if(r=='home'){if(REEL.length)hbind();else loadReel()}if(r=='shop')cards()"
+    if old_home not in html:
+        raise SystemExit("Could not find the homepage render hook for lazy reel loading.")
+    html = html.replace(old_home, new_home, 1)
+    if "</style>" not in html:
+        raise SystemExit("Homepage CSS closing tag is missing.")
+    html = html.replace(
+        "</style>",
+        "#ra .pst{background-image:url('/assets/hero-reel-poster.webp')}\n</style>",
+        1,
+    )
+    html = html.replace(
+        '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">',
+        '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n'
+        '<link rel="preload" as="image" href="/assets/hero-reel-poster.webp" fetchpriority="high">',
+        1,
+    )
+    if "const REEL=" in html or "EXTERNAL_REEL_DATA" in html:
+        raise SystemExit("Hero reel extraction validation failed.")
 
 # Keep the approved hero design, but defer expensive video decoding until the hero is visible.
 if "DEFER_HERO_REEL" not in html:
