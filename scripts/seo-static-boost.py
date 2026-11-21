@@ -107,3 +107,5 @@ if 'rel="canonical" href="https://kazisafii.co.ke/"' not in html:
     raise SystemExit("Canonical URL is missing after homepage update.")
 PAGE.write_text(html, encoding="utf-8")
 print(f"Updated homepage SEO head and appended crawlable printing-services content ({len(html)} characters).")
+
+# Re-run the homepage SEO build after adding this workflow to the default branch.
