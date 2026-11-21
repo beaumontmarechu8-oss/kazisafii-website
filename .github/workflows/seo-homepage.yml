@@ -8,6 +8,7 @@ on:
       - ".github/workflows/seo-homepage.yml"
       - "scripts/seo-homepage.py"
       - "scripts/logo-payload/logo-0.b64"
+      - "assets/kazisafii-logo.svg"
 
 permissions:
   contents: write
