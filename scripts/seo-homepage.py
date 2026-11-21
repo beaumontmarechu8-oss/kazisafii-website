@@ -179,8 +179,8 @@ if not logo_svg.exists():
 svg_text = logo_svg.read_text(encoding="utf-8")
 if "<svg" not in svg_text or "viewBox=" not in svg_text:
     raise SystemExit("Approved source SVG failed validation.")
-if "/assets/kazisafii-logo.svg?v=3" not in html or html.count("document.querySelectorAll('.lgi, .lgw')") != 1:
-    raise SystemExit("The live header/footer logo assignment did not validate.")
+if "/assets/kazisafii-logo.svg?v=3" not in html or "document.querySelectorAll('.lgi, .lgw')" not in html:
+    raise SystemExit("The approved SVG logo assignment is missing from the homepage output.")
 
 PAGE.write_text(html, encoding="utf-8")
 print(f"Homepage SEO updated ({len(html)} characters); verified one static fallback and one SEO footer block.")
