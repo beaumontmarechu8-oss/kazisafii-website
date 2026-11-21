@@ -79,7 +79,15 @@ html = html.replace('alt="Kazisafi print and gifts"', 'alt="Kazisafii Print & Gi
 html = html.replace('© Kazisafi. All rights reserved.', '© Kazisafii Print & Gifts. All rights reserved.')
 
 footer_links = '''<div class="seo-footer-links"><b>Printing &amp; gifts</b><a href="/printing-services-nairobi/">Printing services in Nairobi</a><a href="/business-card-printing-nairobi/">Business card printing</a><a href="/flyer-printing-nairobi/">Flyer printing</a><a href="/banner-printing-nairobi/">Banner printing</a><a href="/sticker-printing-nairobi/">Sticker printing</a><a href="/mug-printing-nairobi/">Mug printing</a><a href="/t-shirt-printing-nairobi/">T-shirt printing</a><a href="/roll-up-banner-printing-nairobi/">Roll-up banner printing</a><a href="/poster-printing-nairobi/">Poster printing</a><a href="/personalised-gifts-nairobi/">Personalised gifts</a><a href="/corporate-gifts-branded-merchandise-nairobi/">Corporate gifts</a><a href="/about-kazisafii/">About Kazisafii</a><a href="/printing-guides-nairobi/">Printing guides</a><a href="/print-ready-artwork-guide-nairobi/">Print-ready artwork checklist</a><a href="/business-card-finishes-guide-nairobi/">Business-card finishes guide</a><a href="/contact-kazisafii/">Contact Kazisafii</a></div>'''
-if 'class="seo-footer-links"' in html:
+broken_footer_pattern = r'\\1<a href="/printing-guides-nairobi/">[\s\S]*?<a href="/business-card-finishes-guide-nairobi/">Business-card finishes guide</a>'
+if re.search(broken_footer_pattern, html):
+    html = replace_once(
+        broken_footer_pattern,
+        lambda match: footer_links,
+        html,
+        "repair legacy footer replacement marker",
+    )
+elif 'class="seo-footer-links"' in html:
     html = replace_once(
         r'<div class="seo-footer-links">[\s\S]*?</div>',
         lambda match: footer_links,
