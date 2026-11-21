@@ -168,5 +168,17 @@ document.addEventListener('DOMContentLoaded', function () {
 if "assets/kazisafii-logo.webp" not in html:
     html = replace_once(r'(</body>)', logo_assets + r'\1', html, "double-i logo asset script")
 
+# Restore the original, full-resolution logo artwork supplied in the updated site file.
+import base64
+logo_payload = ROOT / "scripts" / "logo-payload" / "logo-0.b64"
+logo_output = ROOT / "assets" / "kazisafii-logo.webp"
+if not logo_payload.exists():
+    raise SystemExit("High-resolution Kazisafii logo payload is missing.")
+logo_bytes = base64.b64decode(logo_payload.read_text(encoding="ascii").strip(), validate=True)
+if not logo_bytes.startswith(b"RIFF") or logo_bytes[8:12] != b"WEBP":
+    raise SystemExit("High-resolution logo payload is not a valid WebP image.")
+logo_output.parent.mkdir(parents=True, exist_ok=True)
+logo_output.write_bytes(logo_bytes)
+
 PAGE.write_text(html, encoding="utf-8")
 print(f"Homepage SEO updated ({len(html)} characters); verified one static fallback and one SEO footer block.")
