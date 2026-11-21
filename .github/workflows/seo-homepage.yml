@@ -1,0 +1,47 @@
+name: Improve homepage SEO
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/seo-homepage.yml"
+      - "scripts/seo-homepage.py"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: homepage-seo-main
+  cancel-in-progress: false
+
+jobs:
+  update-homepage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Update homepage metadata and internal service links
+        run: python scripts/seo-homepage.py
+
+      - name: Commit homepage SEO update
+        run: |
+          git diff --check
+          if git diff --quiet -- index.html; then
+            echo "Homepage already has the SEO updates."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Improve homepage SEO metadata and service links [skip ci]"
+          git push origin HEAD:main
