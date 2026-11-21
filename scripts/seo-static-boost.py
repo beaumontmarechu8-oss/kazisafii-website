@@ -170,7 +170,7 @@ if '"@id": "https://kazisafii.co.ke/#organization"' not in html:
 
 html = html.replace('alt="Kazisafi print and gifts"', 'alt="Kazisafii Print &amp; Gifts logo"')
 html = html.replace('aria-label="Kazisafi home"', 'aria-label="Kazisafii Print and Gifts home"')
-html = html.replace("<h2>Put your heart on it.</h2>", "<h1>Put your heart on it.</h1>")
+html = html.replace("<h1>Put your heart on it.</h1>", "<h2>Put your heart on it.</h2>")
 
 html = html.replace(".xh h1{font-size:clamp(44px,6.4vw,92px);line-height:.93;letter-spacing:-.045em;margin:0 0 18px;color:#fff}", ".xh h1,.xh h2{font-size:clamp(44px,6.4vw,92px);line-height:.93;letter-spacing:-.045em;margin:0 0 18px;color:#fff}")
 
@@ -199,7 +199,7 @@ html = re.sub(r'\n<section class="kz-seo-bottom"[\s\S]*?</section>\s*', '', html
 marker = "</main>\n<footer>"
 if html.count(marker) != 1:
     raise SystemExit(f"Expected one homepage/footer boundary, found {html.count(marker)}. No changes written.")
-html = html.replace(marker, seo_section + "</main>\n<footer>", 1)
+html = html.replace(marker, "</main>\n" + seo_section + "<footer>", 1)
 
 style = '''
 .kz-seo-bottom{max-width:1100px;margin:12px auto 34px;padding:26px 18px 12px;border-top:2px solid var(--line);color:var(--ink)}
