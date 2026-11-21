@@ -89,7 +89,7 @@ if 'class="kz-seo-bottom"' not in html:
     marker = "</main>\n<footer>"
     if html.count(marker) != 1:
         raise SystemExit(f"Expected one homepage/footer boundary, found {html.count(marker)}. No changes written.")
-    html = html.replace(marker, "</main>\n" + seo_section + "<footer>", 1)
+    html = html.replace(marker, seo_section + "</main>\n<footer>", 1)
 
 style = '''
 .kz-seo-bottom{max-width:1100px;margin:12px auto 34px;padding:26px 18px 12px;border-top:2px solid var(--line);color:var(--ink)}
