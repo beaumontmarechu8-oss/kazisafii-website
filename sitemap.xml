@@ -2,9 +2,193 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://kazisafii.co.ke/</loc>
-    <lastmod>2026-11-22</lastmod>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/products/00.webp</image:loc>
+      <image:title>Hoodie</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/products/01.webp</image:loc>
+      <image:title>Tote bag</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/products/02.webp</image:loc>
+      <image:title>Enamel mug</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/products/03.webp</image:loc>
+      <image:title>Apron</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/products/04.webp</image:loc>
+      <image:title>Cap</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/products/05.webp</image:loc>
+      <image:title>Bookmarks</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/products/06.webp</image:loc>
+      <image:title>Jersey</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/products/07.webp</image:loc>
+      <image:title>Business cards</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/products/08.webp</image:loc>
+      <image:title>Custom flags</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/products/09.webp</image:loc>
+      <image:title>Kraft bag</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/products/10.webp</image:loc>
+      <image:title>Receipt books</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/products/11.webp</image:loc>
+      <image:title>Wheel cover</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/products/12.webp</image:loc>
+      <image:title>Vinyl stickers</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/products/13.webp</image:loc>
+      <image:title>Photo prints</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/products/14.webp</image:loc>
+      <image:title>Packaging box</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/products/15.webp</image:loc>
+      <image:title>Door frame banner</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/products/16.webp</image:loc>
+      <image:title>Banner</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/products/17.webp</image:loc>
+      <image:title>Mounted photos</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/products/18.webp</image:loc>
+      <image:title>Canvas prints</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/products/19.webp</image:loc>
+      <image:title>Reflector jacket</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/products/20.webp</image:loc>
+      <image:title>Gift vouchers</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/products/21.webp</image:loc>
+      <image:title>Journals and notebooks</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/products/22.webp</image:loc>
+      <image:title>Funeral programs</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/products/23.webp</image:loc>
+      <image:title>Graphic design</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/products/24.webp</image:loc>
+      <image:title>Car decals</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/products/25.webp</image:loc>
+      <image:title>Polo shirt</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/products/26.webp</image:loc>
+      <image:title>Jute bag</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/products/27.webp</image:loc>
+      <image:title>Tear drop banner</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/products/28.webp</image:loc>
+      <image:title>Mug</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/products/29.webp</image:loc>
+      <image:title>T-shirt</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/products/30.webp</image:loc>
+      <image:title>Menus</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/products/31.webp</image:loc>
+      <image:title>Flyers</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/products/32.webp</image:loc>
+      <image:title>Letterheads</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/products/33.webp</image:loc>
+      <image:title>Thermal travel mug</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/products/34.webp</image:loc>
+      <image:title>Backdrop banner</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/products/35.webp</image:loc>
+      <image:title>Pop-up banner</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/products/36.webp</image:loc>
+      <image:title>Postcards</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/products/37.webp</image:loc>
+      <image:title>Document printing</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/products/38.webp</image:loc>
+      <image:title>Presentation folder</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/products/39.webp</image:loc>
+      <image:title>Rigid sign boards</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/products/40.webp</image:loc>
+      <image:title>Water bottle</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/products/41.webp</image:loc>
+      <image:title>Telescopic banner</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/products/42.webp</image:loc>
+      <image:title>Roll-up banner</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/products/43.webp</image:loc>
+      <image:title>Photo framing</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/products/44.webp</image:loc>
+      <image:title>Label stickers</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/products/45.webp</image:loc>
+      <image:title>X banner</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://kazisafii.co.ke/about-kazisafii/</loc>
@@ -14,22 +198,58 @@
   </url>
   <url>
     <loc>https://kazisafii.co.ke/bags-and-packaging-printing-nairobi/</loc>
-    <lastmod>2026-11-22</lastmod>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-  <image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/branded-tote-bag-printing-nairobi.webp</image:loc></image:image><image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/jute-bag-printing-nairobi.webp</image:loc></image:image><image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/kraft-bag-printing-nairobi.webp</image:loc></image:image><image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/custom-packaging-box-printing-nairobi.webp</image:loc></image:image></url>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/branded-tote-bag-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/jute-bag-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/kraft-bag-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/custom-packaging-box-printing-nairobi.webp</image:loc>
+    </image:image>
+  </url>
   <url>
     <loc>https://kazisafii.co.ke/banner-printing-nairobi/</loc>
-    <lastmod>2026-11-22</lastmod>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-  <image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/banner-printing-nairobi.webp</image:loc></image:image><image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/x-banner-printing-nairobi.webp</image:loc></image:image><image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/roll-up-banner-printing-nairobi.webp</image:loc></image:image></url>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/banner-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/x-banner-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/roll-up-banner-printing-nairobi.webp</image:loc>
+    </image:image>
+  </url>
   <url>
     <loc>https://kazisafii.co.ke/banners-event-displays-printing-nairobi/</loc>
-    <lastmod>2026-11-22</lastmod>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-  <image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/x-banner-printing-nairobi.webp</image:loc></image:image><image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/roll-up-banner-printing-nairobi.webp</image:loc></image:image><image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/teardrop-banner-printing-nairobi.webp</image:loc></image:image><image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/pop-up-banner-printing-nairobi.webp</image:loc></image:image><image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/backdrop-banner-printing-nairobi.webp</image:loc></image:image></url>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/x-banner-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/roll-up-banner-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/teardrop-banner-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/pop-up-banner-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/backdrop-banner-printing-nairobi.webp</image:loc>
+    </image:image>
+  </url>
   <url>
     <loc>https://kazisafii.co.ke/business-card-finishes-guide-nairobi/</loc>
     <lastmod>2026-11-21</lastmod>
@@ -38,10 +258,13 @@
   </url>
   <url>
     <loc>https://kazisafii.co.ke/business-card-printing-nairobi/</loc>
-    <lastmod>2026-11-22</lastmod>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-  <image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/business-card-spot-uv-printing-nairobi.webp</image:loc></image:image></url>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/business-card-spot-uv-printing-nairobi.webp</image:loc>
+    </image:image>
+  </url>
   <url>
     <loc>https://kazisafii.co.ke/contact-kazisafii/</loc>
     <lastmod>2026-11-21</lastmod>
@@ -50,46 +273,127 @@
   </url>
   <url>
     <loc>https://kazisafii.co.ke/corporate-gifts-branded-merchandise-nairobi/</loc>
-    <lastmod>2026-11-22</lastmod>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-  <image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/branded-tote-bag-printing-nairobi.webp</image:loc></image:image><image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/custom-cap-printing-nairobi.webp</image:loc></image:image><image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/custom-mug-printing-nairobi.webp</image:loc></image:image><image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/custom-water-bottle-printing-nairobi.webp</image:loc></image:image><image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/journal-notebook-printing-nairobi.webp</image:loc></image:image></url>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/branded-tote-bag-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/custom-cap-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/custom-mug-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/custom-water-bottle-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/journal-notebook-printing-nairobi.webp</image:loc>
+    </image:image>
+  </url>
   <url>
     <loc>https://kazisafii.co.ke/custom-apparel-printing-nairobi/</loc>
-    <lastmod>2026-11-22</lastmod>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-  <image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/custom-t-shirt-printing-nairobi.webp</image:loc></image:image><image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/polo-shirt-printing-nairobi.webp</image:loc></image:image><image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/hoodie-printing-nairobi.webp</image:loc></image:image><image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/custom-jersey-printing-nairobi.webp</image:loc></image:image><image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/reflector-jacket-printing-nairobi.webp</image:loc></image:image></url>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/custom-t-shirt-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/polo-shirt-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/hoodie-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/custom-jersey-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/reflector-jacket-printing-nairobi.webp</image:loc>
+    </image:image>
+  </url>
   <url>
     <loc>https://kazisafii.co.ke/flyer-printing-nairobi/</loc>
-    <lastmod>2026-11-22</lastmod>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-  <image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/flyer-brochure-printing-nairobi.webp</image:loc></image:image><image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/menu-printing-nairobi.webp</image:loc></image:image></url>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/flyer-brochure-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/menu-printing-nairobi.webp</image:loc>
+    </image:image>
+  </url>
   <url>
     <loc>https://kazisafii.co.ke/flyers-brochures-printing-nairobi/</loc>
-    <lastmod>2026-11-22</lastmod>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-  <image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/flyer-brochure-printing-nairobi.webp</image:loc></image:image><image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/menu-printing-nairobi.webp</image:loc></image:image><image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/funeral-program-printing-nairobi.webp</image:loc></image:image><image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/booklet-document-printing-nairobi.webp</image:loc></image:image></url>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/flyer-brochure-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/menu-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/funeral-program-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/booklet-document-printing-nairobi.webp</image:loc>
+    </image:image>
+  </url>
   <url>
     <loc>https://kazisafii.co.ke/mug-printing-nairobi/</loc>
-    <lastmod>2026-11-22</lastmod>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-  <image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/custom-mug-printing-nairobi.webp</image:loc></image:image><image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/enamel-mug-printing-nairobi.webp</image:loc></image:image><image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/thermal-travel-mug-printing-nairobi.webp</image:loc></image:image></url>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/custom-mug-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/enamel-mug-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/thermal-travel-mug-printing-nairobi.webp</image:loc>
+    </image:image>
+  </url>
   <url>
     <loc>https://kazisafii.co.ke/personalised-gifts-nairobi/</loc>
-    <lastmod>2026-11-22</lastmod>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-  <image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/custom-mug-printing-nairobi.webp</image:loc></image:image><image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/custom-water-bottle-printing-nairobi.webp</image:loc></image:image><image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/gift-voucher-printing-nairobi.webp</image:loc></image:image><image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/photo-printing-nairobi.webp</image:loc></image:image></url>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/custom-mug-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/custom-water-bottle-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/gift-voucher-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/photo-printing-nairobi.webp</image:loc>
+    </image:image>
+  </url>
   <url>
     <loc>https://kazisafii.co.ke/photo-printing-personalised-photo-gifts-nairobi/</loc>
-    <lastmod>2026-11-22</lastmod>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-  <image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/photo-printing-nairobi.webp</image:loc></image:image><image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/mounted-photo-printing-nairobi.webp</image:loc></image:image><image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/photo-framing-nairobi.webp</image:loc></image:image><image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/canvas-printing-nairobi.webp</image:loc></image:image></url>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/photo-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/mounted-photo-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/photo-framing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/canvas-printing-nairobi.webp</image:loc>
+    </image:image>
+  </url>
   <url>
     <loc>https://kazisafii.co.ke/poster-printing-nairobi/</loc>
     <lastmod>2026-11-21</lastmod>
@@ -109,77 +413,219 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://kazisafii.co.ke/printing-services-nairobi/</loc>
-    <lastmod>2026-11-22</lastmod>
+    <loc>https://kazisafii.co.ke/printing-portfolio-nairobi/</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-  <image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/business-card-spot-uv-printing-nairobi.webp</image:loc></image:image><image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/flyer-brochure-printing-nairobi.webp</image:loc></image:image><image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/banner-printing-nairobi.webp</image:loc></image:image><image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/vinyl-sticker-printing-nairobi.webp</image:loc></image:image><image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/custom-t-shirt-printing-nairobi.webp</image:loc></image:image><image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/custom-mug-printing-nairobi.webp</image:loc></image:image></url>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/custom-t-shirt-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/polo-shirt-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/hoodie-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/custom-jersey-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/reflector-jacket-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/apron-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/custom-cap-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/custom-mug-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/enamel-mug-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/thermal-travel-mug-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/custom-water-bottle-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/branded-tote-bag-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/jute-bag-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/kraft-bag-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/custom-packaging-box-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/presentation-folder-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/business-card-spot-uv-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/bookmark-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/postcard-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/gift-voucher-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/letterhead-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/receipt-book-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/flyer-brochure-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/menu-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/funeral-program-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/booklet-document-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/banner-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/x-banner-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/roll-up-banner-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/door-frame-banner-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/teardrop-banner-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/telescopic-banner-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/pop-up-banner-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/backdrop-banner-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/custom-flag-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/wheel-cover-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/vinyl-sticker-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/label-sticker-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/car-decal-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/rigid-sign-board-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/journal-notebook-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/photo-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/mounted-photo-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/photo-framing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/canvas-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/graphic-design-nairobi.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://kazisafii.co.ke/printing-services-nairobi/</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/business-card-spot-uv-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/flyer-brochure-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/banner-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/vinyl-sticker-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/custom-t-shirt-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/custom-mug-printing-nairobi.webp</image:loc>
+    </image:image>
+  </url>
   <url>
     <loc>https://kazisafii.co.ke/roll-up-banner-printing-nairobi/</loc>
-    <lastmod>2026-11-22</lastmod>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-  <image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/roll-up-banner-printing-nairobi.webp</image:loc></image:image><image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/x-banner-printing-nairobi.webp</image:loc></image:image><image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/backdrop-banner-printing-nairobi.webp</image:loc></image:image></url>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/roll-up-banner-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/x-banner-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/backdrop-banner-printing-nairobi.webp</image:loc>
+    </image:image>
+  </url>
   <url>
     <loc>https://kazisafii.co.ke/sticker-printing-nairobi/</loc>
-    <lastmod>2026-11-22</lastmod>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-  <image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/vinyl-sticker-printing-nairobi.webp</image:loc></image:image><image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/label-sticker-printing-nairobi.webp</image:loc></image:image><image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/car-decal-printing-nairobi.webp</image:loc></image:image></url>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/vinyl-sticker-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/label-sticker-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/car-decal-printing-nairobi.webp</image:loc>
+    </image:image>
+  </url>
   <url>
     <loc>https://kazisafii.co.ke/t-shirt-printing-nairobi/</loc>
-    <lastmod>2026-11-22</lastmod>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-  <image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/custom-t-shirt-printing-nairobi.webp</image:loc></image:image><image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/polo-shirt-printing-nairobi.webp</image:loc></image:image><image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/hoodie-printing-nairobi.webp</image:loc></image:image><image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/custom-jersey-printing-nairobi.webp</image:loc></image:image></url>
-  <url>
-    <loc>https://kazisafii.co.ke/printing-portfolio-nairobi/</loc>
-    <lastmod>2026-11-22</lastmod>
-    <image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/custom-t-shirt-printing-nairobi.webp</image:loc></image:image>
-    <image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/polo-shirt-printing-nairobi.webp</image:loc></image:image>
-    <image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/hoodie-printing-nairobi.webp</image:loc></image:image>
-    <image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/custom-jersey-printing-nairobi.webp</image:loc></image:image>
-    <image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/reflector-jacket-printing-nairobi.webp</image:loc></image:image>
-    <image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/apron-printing-nairobi.webp</image:loc></image:image>
-    <image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/custom-cap-printing-nairobi.webp</image:loc></image:image>
-    <image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/custom-mug-printing-nairobi.webp</image:loc></image:image>
-    <image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/enamel-mug-printing-nairobi.webp</image:loc></image:image>
-    <image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/thermal-travel-mug-printing-nairobi.webp</image:loc></image:image>
-    <image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/custom-water-bottle-printing-nairobi.webp</image:loc></image:image>
-    <image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/branded-tote-bag-printing-nairobi.webp</image:loc></image:image>
-    <image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/jute-bag-printing-nairobi.webp</image:loc></image:image>
-    <image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/kraft-bag-printing-nairobi.webp</image:loc></image:image>
-    <image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/custom-packaging-box-printing-nairobi.webp</image:loc></image:image>
-    <image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/presentation-folder-printing-nairobi.webp</image:loc></image:image>
-    <image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/business-card-spot-uv-printing-nairobi.webp</image:loc></image:image>
-    <image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/bookmark-printing-nairobi.webp</image:loc></image:image>
-    <image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/postcard-printing-nairobi.webp</image:loc></image:image>
-    <image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/gift-voucher-printing-nairobi.webp</image:loc></image:image>
-    <image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/letterhead-printing-nairobi.webp</image:loc></image:image>
-    <image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/receipt-book-printing-nairobi.webp</image:loc></image:image>
-    <image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/flyer-brochure-printing-nairobi.webp</image:loc></image:image>
-    <image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/menu-printing-nairobi.webp</image:loc></image:image>
-    <image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/funeral-program-printing-nairobi.webp</image:loc></image:image>
-    <image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/booklet-document-printing-nairobi.webp</image:loc></image:image>
-    <image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/banner-printing-nairobi.webp</image:loc></image:image>
-    <image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/x-banner-printing-nairobi.webp</image:loc></image:image>
-    <image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/roll-up-banner-printing-nairobi.webp</image:loc></image:image>
-    <image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/door-frame-banner-printing-nairobi.webp</image:loc></image:image>
-    <image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/teardrop-banner-printing-nairobi.webp</image:loc></image:image>
-    <image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/telescopic-banner-printing-nairobi.webp</image:loc></image:image>
-    <image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/pop-up-banner-printing-nairobi.webp</image:loc></image:image>
-    <image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/backdrop-banner-printing-nairobi.webp</image:loc></image:image>
-    <image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/custom-flag-printing-nairobi.webp</image:loc></image:image>
-    <image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/wheel-cover-printing-nairobi.webp</image:loc></image:image>
-    <image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/vinyl-sticker-printing-nairobi.webp</image:loc></image:image>
-    <image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/label-sticker-printing-nairobi.webp</image:loc></image:image>
-    <image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/car-decal-printing-nairobi.webp</image:loc></image:image>
-    <image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/rigid-sign-board-printing-nairobi.webp</image:loc></image:image>
-    <image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/journal-notebook-printing-nairobi.webp</image:loc></image:image>
-    <image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/photo-printing-nairobi.webp</image:loc></image:image>
-    <image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/mounted-photo-printing-nairobi.webp</image:loc></image:image>
-    <image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/photo-framing-nairobi.webp</image:loc></image:image>
-    <image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/canvas-printing-nairobi.webp</image:loc></image:image>
-    <image:image><image:loc>https://kazisafii.co.ke/assets/printing-photos/graphic-design-nairobi.webp</image:loc></image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/custom-t-shirt-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/polo-shirt-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/hoodie-printing-nairobi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://kazisafii.co.ke/assets/printing-photos/custom-jersey-printing-nairobi.webp</image:loc>
+    </image:image>
   </url>
 </urlset>
