@@ -85,11 +85,12 @@ seo_section = '''
   <p class="kz-seo-contact">Need help choosing a product? <a href="https://wa.me/254743288927">WhatsApp Kazisafii on 0743 288 927</a>.</p>
 </section>
 '''
-if 'class="kz-seo-bottom"' not in html:
-    marker = "</main>\n<footer>"
-    if html.count(marker) != 1:
-        raise SystemExit(f"Expected one homepage/footer boundary, found {html.count(marker)}. No changes written.")
-    html = html.replace(marker, seo_section + "</main>\n<footer>", 1)
+# Always place the crawlable service section inside main, immediately before the footer.
+html = re.sub(r'\n<section class="kz-seo-bottom"[\s\S]*?</section>\s*', '', html, count=1)
+marker = "</main>\n<footer>"
+if html.count(marker) != 1:
+    raise SystemExit(f"Expected one homepage/footer boundary, found {html.count(marker)}. No changes written.")
+html = html.replace(marker, seo_section + "</main>\n<footer>", 1)
 
 style = '''
 .kz-seo-bottom{max-width:1100px;margin:12px auto 34px;padding:26px 18px 12px;border-top:2px solid var(--line);color:var(--ink)}
