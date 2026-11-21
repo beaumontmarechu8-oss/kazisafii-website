@@ -87,6 +87,15 @@ if 'class="seo-footer-links"' not in html:
         "static footer service links",
     )
 
+if '/printing-guides-nairobi/' not in html:
+    guide_footer = '<a href="/printing-guides-nairobi/">Printing guides</a><a href="/print-ready-artwork-guide-nairobi/">Print-ready artwork checklist</a><a href="/business-card-finishes-guide-nairobi/">Business-card finishes guide</a>'
+    html = replace_once(
+        r'(<div class="seo-footer-links">[\s\S]*?<a href="/contact-kazisafii/">Contact Kazisafii</a>)',
+        r'\\1' + guide_footer,
+        html,
+        "homepage guide footer links",
+    )
+
 
 seo_section = '''<section class="sec seo-hub"><h2>Printing services and personalised gifts in Nairobi</h2><p>Kazisafii Print &amp; Gifts brings business printing, branded merchandise and personalised gifts together in one online shop. Browse the product pages below for current starting prices, minimum quantities and available options. We serve Nairobi and arrange delivery beyond Nairobi; confirm the final price and delivery details for your order.</p><div class="seo-links"><a href="/printing-services-nairobi/">Printing services in Nairobi</a><a href="/business-card-printing-nairobi/">Business card printing</a><a href="/flyer-printing-nairobi/">Flyer printing</a><a href="/banner-printing-nairobi/">Banner printing</a><a href="/roll-up-banner-printing-nairobi/">Roll-up banner printing</a><a href="/poster-printing-nairobi/">Poster printing</a><a href="/sticker-printing-nairobi/">Sticker and label printing</a><a href="/t-shirt-printing-nairobi/">Custom T-shirt printing</a><a href="/mug-printing-nairobi/">Mug printing</a><a href="/personalised-gifts-nairobi/">Personalised gifts</a><a href="/corporate-gifts-branded-merchandise-nairobi/">Corporate gifts and branded merchandise</a></div></section>\n'''
 if 'class="sec seo-hub"' not in html:
