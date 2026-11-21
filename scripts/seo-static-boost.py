@@ -176,7 +176,7 @@ html = html.replace(".xh h1{font-size:clamp(44px,6.4vw,92px);line-height:.93;let
 
 seo_section = '''
 <section class="kz-seo-bottom" aria-labelledby="kz-printing-services-heading">
-  <h2 id="kz-printing-services-heading">Printing services and personalised gifts in Nairobi</h2>
+  <h1 id="kz-printing-services-heading">Printing services and personalised gifts in Nairobi</h1>
   <p>Kazisafii Print &amp; Gifts brings everyday business printing, large-format displays, branded merchandise and personalised gifts together in one online shop. Browse product information, compare available options and contact the team for a quotation. Orders can be paid for using M-Pesa, with collection or delivery arrangements confirmed with the team.</p>
   <div class="kz-seo-links">
     <a href="/printing-services-nairobi/">All printing services in Nairobi</a>
