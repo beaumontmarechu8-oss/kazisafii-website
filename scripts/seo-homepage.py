@@ -150,36 +150,37 @@ if html.count('class="nojs-home"') != 1:
     raise SystemExit(f"Expected exactly one no-JavaScript fallback; found {html.count('class=\"nojs-home\"')}.")
 if html.count('class="seo-footer-links"') != 1:
     raise SystemExit(f"Expected exactly one static SEO footer block; found {html.count('class=\"seo-footer-links\"')}.")
-# Apply the supplied double-i brand artwork to both header and footer logos.
-logo_assets = """
-<style>
-.lgw { filter: brightness(0) invert(1); }
-.lgi, .lgw { width: auto; height: auto; object-fit: contain; }
-</style>
-<script>
-document.querySelectorAll('.lgi, .lgw').forEach(function (img) {
-  img.src = '/assets/kazisafii-logo.svg?v=2';
-  img.alt = 'Kazisafii Print & Gifts logo';
-  img.decoding = 'async';
-});
-</script>
-"""
-# Remove the previous WebP logo loader so it cannot overwrite the approved SVG.
-html = re.sub(r'<style>\s*\.lgw \{ filter: brightness\(0\) invert\(1\); \}\s*</style>\s*<script>\s*document.addEventListener\([\s\S]*?assets/kazisafii-logo\.webp[\s\S]*?</script>\s*', '', html, count=1)
-if "assets/kazisafii-logo.svg" not in html:
-    html = replace_once(r'(</body>)', logo_assets + r'\1', html, "approved SVG logo asset script")
+# Use the supplied SVG in the main app's actual logo assignment.
+# The existing page sets the header logo from an embedded WebP inside its main
+# JavaScript; changing only an appended script leaves that old code in control.
+old_logo_loader = "document.querySelectorAll('.lgi').forEach(i=>i.src=LOGO);"
+new_logo_loader = "document.querySelectorAll('.lgi, .lgw').forEach(i=>{i.src='/assets/kazisafii-logo.svg?v=3';i.alt='Kazisafii Print & Gifts logo';i.decoding='async'});"
+if old_logo_loader in html:
+    html = html.replace(old_logo_loader, new_logo_loader, 1)
+elif new_logo_loader not in html:
+    raise SystemExit("Could not find the original logo assignment in index.html; refusing to deploy an unverified change.")
 
-# Restore the original, full-resolution logo artwork supplied in the updated site file.
-import base64
-logo_payload = ROOT / "scripts" / "logo-payload" / "logo-0.b64"
-logo_output = ROOT / "assets" / "kazisafii-logo.webp"
-if not logo_payload.exists():
-    raise SystemExit("High-resolution Kazisafii logo payload is missing.")
-logo_bytes = base64.b64decode(logo_payload.read_text(encoding="ascii").strip(), validate=True)
-if not logo_bytes.startswith(b"RIFF") or logo_bytes[8:12] != b"WEBP":
-    raise SystemExit("High-resolution logo payload is not a valid WebP image.")
-logo_output.parent.mkdir(parents=True, exist_ok=True)
-logo_output.write_bytes(logo_bytes)
+# Keep the footer version white against its dark background.
+if ".lgw { filter: brightness(0) invert(1); }" not in html:
+    html = replace_once(
+        r"(</style>)",
+        ".lgw { filter: brightness(0) invert(1); }\\n\\1",
+        html,
+        "footer SVG logo colour",
+    )
+
+# Keep any previously inserted fallback loader pointed at the same SVG revision.
+html = html.replace("/assets/kazisafii-logo.svg?v=2", "/assets/kazisafii-logo.svg?v=3")
+
+# The SVG must be the actual build input, not an image copied from the old WebP.
+logo_svg = ROOT / "assets" / "kazisafii-logo.svg"
+if not logo_svg.exists():
+    raise SystemExit("Approved source SVG is missing from assets/kazisafii-logo.svg.")
+svg_text = logo_svg.read_text(encoding="utf-8")
+if "<svg" not in svg_text or "viewBox=" not in svg_text:
+    raise SystemExit("Approved source SVG failed validation.")
+if "/assets/kazisafii-logo.svg?v=3" not in html or html.count("document.querySelectorAll('.lgi, .lgw')") != 1:
+    raise SystemExit("The live header/footer logo assignment did not validate.")
 
 PAGE.write_text(html, encoding="utf-8")
 print(f"Homepage SEO updated ({len(html)} characters); verified one static fallback and one SEO footer block.")
