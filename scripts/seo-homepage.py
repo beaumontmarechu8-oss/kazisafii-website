@@ -121,13 +121,20 @@ html = replace_once(
 seo_section = '''<section class="sec seo-hub"><h2>Printing services and personalised gifts in Nairobi</h2><p>Kazisafii Print &amp; Gifts brings business printing, branded merchandise and personalised gifts together in one online shop. Browse the product pages below for current starting prices, minimum quantities and available options. We serve Nairobi and arrange delivery beyond Nairobi; confirm the final price and delivery details for your order.</p><div class="seo-links"><a href="/printing-services-nairobi/">Printing services in Nairobi</a><a href="/business-card-printing-nairobi/">Business card printing</a><a href="/flyer-printing-nairobi/">Flyer printing</a><a href="/banner-printing-nairobi/">Banner printing</a><a href="/roll-up-banner-printing-nairobi/">Roll-up banner printing</a><a href="/poster-printing-nairobi/">Poster printing</a><a href="/sticker-printing-nairobi/">Sticker and label printing</a><a href="/t-shirt-printing-nairobi/">Custom T-shirt printing</a><a href="/mug-printing-nairobi/">Mug printing</a><a href="/personalised-gifts-nairobi/">Personalised gifts</a><a href="/corporate-gifts-branded-merchandise-nairobi/">Corporate gifts and branded merchandise</a></div></section>\\n'''
 # Relocate the SEO links after all existing homepage sections.
 html = re.sub(r'<section class="sec seo-hub">[\s\S]*?</section>\s*', '', html, flags=re.I)
-home_end = r'(\$\{recentRow\(\)\})' + re.escape(chr(96)) + r'\},\s*shop:\(\)=>'
-html = replace_once(
-    home_end,
-    lambda match: match.group(1) + seo_section + chr(96) + '},\nshop:()=>',
-    html,
-    "move homepage SEO link hub to the bottom",
-)
+# Insert the supporting SEO hub at the end of the homepage template.
+# Locate the home view and its following shop view, then insert after the last
+# recently-viewed row inside the home view. This avoids brittle cross-line regexes.
+home_start = html.find("home:()=>")
+shop_start = html.find("shop:()=>", home_start + 1)
+if home_start < 0 or shop_start < 0:
+    raise SystemExit("Could not locate the homepage and shop view boundaries.")
+home_view = html[home_start:shop_start]
+recent_marker = "${recentRow()}"
+recent_pos = home_view.rfind(recent_marker)
+if recent_pos < 0:
+    raise SystemExit("Could not locate the homepage's final recently-viewed row.")
+insert_at = home_start + recent_pos + len(recent_marker)
+html = html[:insert_at] + seo_section + html[insert_at:]
 
 css = '''
 .seo-hub{max-width:1180px;margin:30px auto;padding:30px 24px;background:var(--soft);border-radius:18px}.seo-hub h2{margin:0 0 10px}.seo-hub>p{max-width:850px;color:var(--mut);margin:0 0 18px}.seo-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:10px}.seo-links a{display:block;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;color:var(--ink);text-decoration:none;font-weight:650}.seo-links a:hover{border-color:var(--red);color:var(--red)}
