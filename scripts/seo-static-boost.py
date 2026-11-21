@@ -69,9 +69,8 @@ function loadReel(){
         raise SystemExit("Could not find the homepage render hook for lazy reel loading.")
     html = html.replace(old_home, new_home, 1)
     if "#app{min-height:100vh}" not in html:
-    html = html.replace("</style>", "#app{min-height:100vh}\n</style>", 1)
-
-if "</style>" not in html:
+        html = html.replace("</style>", "#app{min-height:100vh}\n</style>", 1)
+    if "</style>" not in html:
         raise SystemExit("Homepage CSS closing tag is missing.")
     html = html.replace(
         "</style>",
