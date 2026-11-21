@@ -154,19 +154,20 @@ if html.count('class="seo-footer-links"') != 1:
 logo_assets = """
 <style>
 .lgw { filter: brightness(0) invert(1); }
+.lgi, .lgw { width: auto; height: auto; object-fit: contain; }
 </style>
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-  document.querySelectorAll('.lgi, .lgw').forEach(function (img) {
-    img.src = '/assets/kazisafii-logo.webp';
-    img.alt = 'Kazisafii Print & Gifts logo';
-    img.decoding = 'async';
-  });
+document.querySelectorAll('.lgi, .lgw').forEach(function (img) {
+  img.src = '/assets/kazisafii-logo.svg?v=2';
+  img.alt = 'Kazisafii Print & Gifts logo';
+  img.decoding = 'async';
 });
 </script>
 """
-if "assets/kazisafii-logo.webp" not in html:
-    html = replace_once(r'(</body>)', logo_assets + r'\1', html, "double-i logo asset script")
+# Remove the previous WebP logo loader so it cannot overwrite the approved SVG.
+html = re.sub(r'<style>\s*\.lgw \{ filter: brightness\(0\) invert\(1\); \}\s*</style>\s*<script>\s*document.addEventListener\([\s\S]*?assets/kazisafii-logo\.webp[\s\S]*?</script>\s*', '', html, count=1)
+if "assets/kazisafii-logo.svg" not in html:
+    html = replace_once(r'(</body>)', logo_assets + r'\1', html, "approved SVG logo asset script")
 
 # Restore the original, full-resolution logo artwork supplied in the updated site file.
 import base64
