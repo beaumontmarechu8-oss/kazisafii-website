@@ -9,10 +9,34 @@ html = PAGE.read_text(encoding="utf-8")
 
 # Move the large hero video reel out of the initial HTML so the shop can paint first.
 if "const REEL=" in html:
-    reel_match = re.search(r"const REEL=(\[.*?\]);", html, flags=re.S)
-    if not reel_match:
-        raise SystemExit("Could not extract the homepage hero reel data.")
-    reel_data = json.loads(reel_match.group(1))
+    reel_decl_start = html.index("const REEL=")
+    reel_array_start = reel_decl_start + len("const REEL=")
+    depth = 0
+    in_string = False
+    escaped = False
+    reel_array_end = None
+    for position in range(reel_array_start, len(html)):
+        char = html[position]
+        if in_string:
+            if escaped:
+                escaped = False
+            elif char == "\\\\":
+                escaped = True
+            elif char == '"':
+                in_string = False
+        else:
+            if char == '"':
+                in_string = True
+            elif char == '[':
+                depth += 1
+            elif char == ']':
+                depth -= 1
+                if depth == 0:
+                    reel_array_end = position + 1
+                    break
+    if reel_array_end is None or not html.startswith(",PHO=", reel_array_end):
+        raise SystemExit("Could not locate the end of the homepage reel data.")
+    reel_data = json.loads(html[reel_array_start:reel_array_end])
     (ROOT / "reel-data.json").write_text(
         json.dumps(reel_data, separators=(",", ":"), ensure_ascii=False),
         encoding="utf-8",
@@ -38,7 +62,7 @@ function loadReel(){
   },1200);
 }
 """
-    html = html[:reel_match.start()] + loader + html[reel_match.end():]
+    html = html[:reel_decl_start] + loader + "const PHO" + html[reel_array_end + len(",PHO"): ]
     old_home = "if(r=='home')hbind();if(r=='shop')cards()"
     new_home = "if(r=='home'){if(REEL.length)hbind();else loadReel()}if(r=='shop')cards()"
     if old_home not in html:
