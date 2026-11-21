@@ -1,0 +1,47 @@
+name: Build product-first Kazisafii website
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - ".site-build-source/**"
+      - "scripts/build-product-first.py"
+      - ".github/workflows/build-product-first.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: kazisafii-product-first-build
+  cancel-in-progress: false
+
+jobs:
+  build-site:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Build product-first homepage and recover original product photos
+        run: python scripts/build-product-first.py
+      - name: Validate output and publish generated site files
+        run: |
+          python -m py_compile scripts/build-product-first.py
+          git diff --check
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html styles.css app.js products.js sitemap.xml robots.txt assets/kazisafii-logo.svg assets/products scripts/build-product-first.py .site-build-source .github/workflows/build-product-first.yml
+          if git diff --cached --quiet; then
+            echo "No website changes to publish."
+            exit 0
+          fi
+          git commit -m "Publish product-first Kazisafii website"
+          git push origin HEAD:main

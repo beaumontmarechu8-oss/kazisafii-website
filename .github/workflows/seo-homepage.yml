@@ -1,49 +1,14 @@
-name: Improve homepage SEO
+name: Legacy homepage SEO automation (manual only)
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - ".github/workflows/seo-homepage.yml"
-      - "scripts/seo-homepage.py"
-      - "scripts/logo-payload/logo-0.b64"
-      - "assets/kazisafii-logo.svg"
+  workflow_dispatch:
 
 permissions:
   contents: write
 
-concurrency:
-  group: homepage-seo-main
-  cancel-in-progress: false
-
 jobs:
-  update-homepage:
+  legacy:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
     steps:
-      - name: Check out main
-        uses: actions/checkout@v4
-        with:
-          ref: main
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.x"
-
-      - name: Update homepage metadata and internal service links
-        run: python scripts/seo-homepage.py
-
-      - name: Commit homepage SEO update
-        run: |
-          git diff --check
-          if git diff --quiet -- index.html; then
-            echo "Homepage already has the SEO updates."
-            exit 0
-          fi
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html
-          git commit -m "Improve homepage SEO metadata and service links [skip ci]"
-          git push origin HEAD:main
+      - name: Explain the replacement workflow
+        run: echo "Homepage publishing is handled by build-product-first.yml."
