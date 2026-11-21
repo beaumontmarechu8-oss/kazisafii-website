@@ -87,7 +87,7 @@ html = re.sub(
     html,
     count=1,
 )
-html = re.sub(r'(?:<div class="seo-footer-links">[\s\S]*?</div>\\s*)+', '', html, count=1)
+html = re.sub(r'<div class="seo-footer-links">[\s\S]*?</div>', '', html)
 html = replace_once(
     r'(<a href="#shop" onclick="G=-1">All products</a>)',
     lambda match: match.group(1) + footer_links,
