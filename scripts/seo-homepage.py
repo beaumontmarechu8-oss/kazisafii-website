@@ -152,15 +152,15 @@ if html.count('class="seo-footer-links"') != 1:
     raise SystemExit(f"Expected exactly one static SEO footer block; found {html.count('class=\"seo-footer-links\"')}.")
 # Apply the supplied double-i brand artwork to both header and footer logos.
 logo_assets = """
+<style>
+.lgw { filter: brightness(0) invert(1); }
+</style>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-  document.querySelectorAll('.lgi').forEach(function (img) {
+  document.querySelectorAll('.lgi, .lgw').forEach(function (img) {
     img.src = '/assets/kazisafii-logo.webp';
     img.alt = 'Kazisafii Print & Gifts logo';
-  });
-  document.querySelectorAll('.lgw').forEach(function (img) {
-    img.src = '/assets/kazisafii-logo-white.webp';
-    img.alt = 'Kazisafii Print & Gifts logo';
+    img.decoding = 'async';
   });
 });
 </script>
