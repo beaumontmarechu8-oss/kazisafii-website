@@ -76,6 +76,16 @@ html = html.replace('aria-label="Kazisafi home"', 'aria-label="Kazisafii Print a
 html = html.replace('alt="Kazisafi print and gifts"', 'alt="Kazisafii Print & Gifts logo"')
 html = html.replace('© Kazisafi. All rights reserved.', '© Kazisafii Print & Gifts. All rights reserved.')
 
+footer_links = '''<div class="seo-footer-links"><b>Printing &amp; gifts</b><a href="/printing-services-nairobi/">Printing services in Nairobi</a><a href="/business-card-printing-nairobi/">Business card printing</a><a href="/flyer-printing-nairobi/">Flyer printing</a><a href="/banner-printing-nairobi/">Banner printing</a><a href="/sticker-printing-nairobi/">Sticker printing</a><a href="/mug-printing-nairobi/">Mug printing</a><a href="/t-shirt-printing-nairobi/">T-shirt printing</a><a href="/roll-up-banner-printing-nairobi/">Roll-up banner printing</a><a href="/poster-printing-nairobi/">Poster printing</a><a href="/personalised-gifts-nairobi/">Personalised gifts</a><a href="/corporate-gifts-branded-merchandise-nairobi/">Corporate gifts</a><a href="/about-kazisafii/">About Kazisafii</a><a href="/contact-kazisafii/">Contact Kazisafii</a></div>'''
+if 'class="seo-footer-links"' not in html:
+    html = replace_once(
+        r'(<a href="#shop" onclick="G=-1">All products</a>)',
+        r'\1' + footer_links,
+        html,
+        "static footer service links",
+    )
+
+
 seo_section = '''<section class="sec seo-hub"><h2>Printing services and personalised gifts in Nairobi</h2><p>Kazisafii Print &amp; Gifts brings business printing, branded merchandise and personalised gifts together in one online shop. Browse the product pages below for current starting prices, minimum quantities and available options. We serve Nairobi and arrange delivery beyond Nairobi; confirm the final price and delivery details for your order.</p><div class="seo-links"><a href="/printing-services-nairobi/">Printing services in Nairobi</a><a href="/business-card-printing-nairobi/">Business card printing</a><a href="/flyer-printing-nairobi/">Flyer printing</a><a href="/banner-printing-nairobi/">Banner printing</a><a href="/roll-up-banner-printing-nairobi/">Roll-up banner printing</a><a href="/poster-printing-nairobi/">Poster printing</a><a href="/sticker-printing-nairobi/">Sticker and label printing</a><a href="/t-shirt-printing-nairobi/">Custom T-shirt printing</a><a href="/mug-printing-nairobi/">Mug printing</a><a href="/personalised-gifts-nairobi/">Personalised gifts</a><a href="/corporate-gifts-branded-merchandise-nairobi/">Corporate gifts and branded merchandise</a></div></section>\n'''
 html = replace_once(
     r'(<section class="sec"><h2>Three easy ways to order</h2>)',
@@ -86,6 +96,7 @@ html = replace_once(
 
 css = '''
 .seo-hub{max-width:1180px;margin:30px auto;padding:30px 24px;background:var(--soft);border-radius:18px}.seo-hub h2{margin:0 0 10px}.seo-hub>p{max-width:850px;color:var(--mut);margin:0 0 18px}.seo-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:10px}.seo-links a{display:block;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;color:var(--ink);text-decoration:none;font-weight:650}.seo-links a:hover{border-color:var(--red);color:var(--red)}
+.seo-footer-links{margin-top:12px;padding-top:10px;border-top:1px solid var(--line)}.seo-footer-links b{font-size:13px}.seo-footer-links a{font-size:12px;line-height:1.45}
 '''
 html = replace_once(r'(</style>)', css + r'\1', html, "homepage service hub styles")
 
