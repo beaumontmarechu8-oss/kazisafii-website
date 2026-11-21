@@ -121,5 +121,9 @@ css = '''
 if '.seo-hub{' not in html:
     html = replace_once(r'(</style>)', css + r'\1', html, "homepage service hub styles")
 
+if html.count('class="nojs-home"') != 1:
+    raise SystemExit(f"Expected exactly one no-JavaScript fallback; found {html.count('class=\"nojs-home\"')}.")
+if html.count('class="seo-footer-links"') != 1:
+    raise SystemExit(f"Expected exactly one static SEO footer block; found {html.count('class=\"seo-footer-links\"')}.")
 PAGE.write_text(html, encoding="utf-8")
-print(f"Homepage SEO updated ({len(html)} characters).")
+print(f"Homepage SEO updated ({len(html)} characters); verified one static fallback and one SEO footer block.")
