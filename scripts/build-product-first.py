@@ -22,15 +22,21 @@ for name in required:
 legacy_home = ROOT / "index.html"
 legacy_html = legacy_home.read_text(encoding="utf-8")
 image_payloads = re.findall(r"data:image/webp;base64,([A-Za-z0-9+/=]+)", legacy_html)
-if len(image_payloads) < 50:
-    raise SystemExit(f"Expected at least 50 embedded WebP images in the legacy homepage; found {len(image_payloads)}. No homepage replacement performed.")
-
 PRODUCT_IMAGES.mkdir(parents=True, exist_ok=True)
-for index, payload in enumerate(image_payloads[4:50]):
-    image = base64.b64decode(payload, validate=True)
-    if len(image) < 16 or image[:4] != b"RIFF" or image[8:12] != b"WEBP":
-        raise SystemExit(f"Embedded image {index + 4} is not a valid WebP. No homepage replacement performed.")
-    (PRODUCT_IMAGES / f"{index:02d}.webp").write_bytes(image)
+if len(image_payloads) >= 50:
+    # First build: recover the exact 46 catalogue photos from the legacy homepage.
+    for index, payload in enumerate(image_payloads[4:50]):
+        image = base64.b64decode(payload, validate=True)
+        if len(image) < 16 or image[:4] != b"RIFF" or image[8:12] != b"WEBP":
+            raise SystemExit(f"Embedded image {index + 4} is not a valid WebP. No homepage replacement performed.")
+        (PRODUCT_IMAGES / f"{index:02d}.webp").write_bytes(image)
+else:
+    # Repeat builds use the already recovered assets after the legacy homepage
+    # has been replaced, so this workflow remains safe and repeatable.
+    for index in range(46):
+        image_path = PRODUCT_IMAGES / f"{index:02d}.webp"
+        if not image_path.is_file() or image_path.read_bytes()[:12] != b"RIFF" + image_path.read_bytes()[4:8] + b"WEBP":
+            raise SystemExit(f"Legacy image payloads are absent and recovered product image {index:02d}.webp is missing or invalid.")
 
 # Copy the new product-first site files into the Render static-site root.
 for name in ["index.html", "styles.css", "app.js", "products.js"]:
@@ -68,7 +74,73 @@ for item in products:
     if image and not (ROOT / image).is_file():
         raise SystemExit(f"Missing product image for {item.get('name')}: {image}")
 
+# Pre-render the complete catalogue into the HTML itself. This keeps products
+# visible to visitors and search crawlers before JavaScript runs; app.js then
+# takes over for filtering, sorting, details and quote-list interactions.
+import html as html_module
+first_image_by_category: dict[str, str] = {}
+for item in products:
+    if item.get("image") and not first_image_by_category.get(item.get("category", "")):
+        first_image_by_category[item.get("category", "")] = item["image"]
+
+cards = []
+for item in products:
+    name = html_module.escape(str(item.get("name", "")), quote=True)
+    category = html_module.escape(str(item.get("category", "")), quote=True)
+    product_id = html_module.escape(str(item.get("id", "")), quote=True)
+    image = item.get("image") or first_image_by_category.get(item.get("category", ""), "")
+    if image:
+        safe_image = html_module.escape(image, quote=True)
+        image_markup = (
+            f'<img src="/{safe_image}" alt="{name}" loading="lazy" decoding="async" '
+            f'onerror="this.hidden=true;this.nextElementSibling.hidden=false">'
+            f'<div class="image-fallback" hidden><div class="image-placeholder" aria-label="{name}">'
+            f'<span>{html_module.escape("".join(word[0] for word in str(item.get("name", "")).split()[:2]).upper())}</span>'
+            f'<small>{category}</small></div></div>'
+        )
+    else:
+        initials = "".join(word[0] for word in str(item.get("name", "")).split()[:2]).upper()
+        image_markup = (
+            f'<div class="image-placeholder" aria-label="{name}">'
+            f'<span>{html_module.escape(initials)}</span><small>{category}</small></div>'
+        )
+    label = "Popular" if item.get("popular") else "New" if item.get("new") else ""
+    label_markup = f'<span class="product-label">{label}</span>' if label else ""
+    cards.append(
+        f'<article class="product-card" data-id="{product_id}">'
+        f'<button class="product-image" type="button" data-details="{product_id}" aria-label="View {name} details">'
+        f'{image_markup}{label_markup}</button>'
+        f'<div class="product-content"><p class="product-category">{category}</p>'
+        f'<h3 class="product-name">{name}</h3>'
+        f'<div class="product-bottom"><div><div class="product-price"><small>Pricing</small>Request a quote</div>'
+        f'<div class="product-min">Quantity confirmed with your quote</div></div>'
+        f'<button class="product-add" type="button" data-add="{product_id}" aria-label="Add {name} to quote list">+</button>'
+        f'</div></div></article>'
+    )
+
 home = (ROOT / "index.html").read_text(encoding="utf-8")
+grid_open = '<div class="product-grid" id="productGrid" aria-live="polite">'
+static_start = "<!-- KAZISAFII_STATIC_PRODUCTS_START -->"
+static_end = "<!-- KAZISAFII_STATIC_PRODUCTS_END -->"
+static_markup = static_start + "".join(cards) + static_end
+if static_start in home and static_end in home:
+    home, grid_count = re.subn(
+        re.escape(static_start) + r".*?" + re.escape(static_end),
+        lambda _: static_markup,
+        home,
+        count=1,
+        flags=re.S,
+    )
+else:
+    empty_grid = grid_open + "</div>"
+    if empty_grid not in home:
+        raise SystemExit("Could not find the empty product grid or the static catalogue markers.")
+    home = home.replace(empty_grid, grid_open + static_markup + "</div>", 1)
+    grid_count = 1
+if grid_count != 1:
+    raise SystemExit(f"Expected one product grid for static catalogue rendering; found {grid_count}.")
+home = re.sub(r'(<p id="resultCount" aria-live="polite">).*?(</p>)', rf'\g<1>Showing {len(products)} of {len(products)} products\g<2>', home, count=1)
+(ROOT / "index.html").write_text(home, encoding="utf-8")
 if not (home.index('id="catalogue"') < home.index('id="services"')):
     raise SystemExit("Homepage order check failed: the product catalogue must appear before services.")
 if not (ROOT / "assets" / "kazisafii-logo.svg").is_file():
