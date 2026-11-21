@@ -59,7 +59,7 @@ function loadReel(){
         if(!location.hash||location.hash==='#home')hbind();
       })
       .catch(()=>{REEL_LOADING=false;const el=$('#rl');if(el)el.classList.add('novid')});
-  },1200);
+  },4000);
 }
 """
     html = html[:reel_decl_start] + loader + "const PHO" + html[reel_array_end + len(",PHO"): ]
@@ -68,7 +68,10 @@ function loadReel(){
     if old_home not in html:
         raise SystemExit("Could not find the homepage render hook for lazy reel loading.")
     html = html.replace(old_home, new_home, 1)
-    if "</style>" not in html:
+    if "#app{min-height:100vh}" not in html:
+    html = html.replace("</style>", "#app{min-height:100vh}\n</style>", 1)
+
+if "</style>" not in html:
         raise SystemExit("Homepage CSS closing tag is missing.")
     html = html.replace(
         "</style>",
