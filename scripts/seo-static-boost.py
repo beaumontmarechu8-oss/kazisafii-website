@@ -62,12 +62,12 @@ if '"@id": "https://kazisafii.co.ke/#organization"' not in html:
 
 html = html.replace('alt="Kazisafi print and gifts"', 'alt="Kazisafii Print &amp; Gifts logo"')
 html = html.replace('aria-label="Kazisafi home"', 'aria-label="Kazisafii Print and Gifts home"')
-html = html.replace("<h1>Put your heart on it.</h1>", "<h2>Put your heart on it.</h2>")
+
 html = html.replace(".xh h1{font-size:clamp(44px,6.4vw,92px);line-height:.93;letter-spacing:-.045em;margin:0 0 18px;color:#fff}", ".xh h1,.xh h2{font-size:clamp(44px,6.4vw,92px);line-height:.93;letter-spacing:-.045em;margin:0 0 18px;color:#fff}")
 
 seo_section = '''
 <section class="kz-seo-bottom" aria-labelledby="kz-printing-services-heading">
-  <h1 id="kz-printing-services-heading">Printing services and personalised gifts in Nairobi</h1>
+  <h2 id="kz-printing-services-heading">Printing services and personalised gifts in Nairobi</h2>
   <p>Kazisafii Print &amp; Gifts brings everyday business printing, large-format displays, branded merchandise and personalised gifts together in one online shop. Browse product information, compare available options and contact the team for a quotation. Orders can be paid for using M-Pesa, with collection or delivery arrangements confirmed with the team.</p>
   <div class="kz-seo-links">
     <a href="/printing-services-nairobi/">All printing services in Nairobi</a>
