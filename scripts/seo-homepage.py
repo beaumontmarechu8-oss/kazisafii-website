@@ -6,6 +6,9 @@ ROOT = Path(__file__).resolve().parent.parent
 PAGE = ROOT / "index.html"
 html = PAGE.read_text(encoding="utf-8")
 
+# Keep customer-facing brand spelling consistent in WhatsApp and order templates.
+html = re.sub(r'(?<![A-Za-z])Kazisafi(?![A-Za-z])', 'Kazisafii', html)
+
 
 def replace_once(pattern: str, replacement: str, source: str, label: str) -> str:
     updated, count = re.subn(pattern, replacement, source, count=1, flags=re.I | re.S)
@@ -121,6 +124,8 @@ css = '''
 if '.seo-hub{' not in html:
     html = replace_once(r'(</style>)', css + r'\1', html, "homepage service hub styles")
 
+if re.search(r'(?<![A-Za-z])Kazisafi(?![A-Za-z])', html):
+    raise SystemExit("Found an old customer-facing Kazisafi spelling in the homepage source.")
 if html.count('class="nojs-home"') != 1:
     raise SystemExit(f"Expected exactly one no-JavaScript fallback; found {html.count('class=\"nojs-home\"')}.")
 if html.count('class="seo-footer-links"') != 1:
