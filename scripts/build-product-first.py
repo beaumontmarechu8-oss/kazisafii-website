@@ -111,7 +111,7 @@ for item in products:
         f'<button class="product-image" type="button" data-details="{product_id}" aria-label="View {name} details">'
         f'{image_markup}{label_markup}</button>'
         f'<div class="product-content"><p class="product-category">{category}</p>'
-        f'<h3 class="product-name">{name}</h3>'
+        f'<h2 class="product-name">{name}</h2>'
         f'<div class="product-bottom"><div><div class="product-price"><small>Pricing</small>Request a quote</div>'
         f'<div class="product-min">Quantity confirmed with your quote</div></div>'
         f'<button class="product-add" type="button" data-add="{product_id}" aria-label="Add {name} to quote list">+</button>'
@@ -164,14 +164,58 @@ for page in ROOT.rglob("index.html"):
 
 now = datetime.now(timezone.utc).date().isoformat()
 ns = "http://www.sitemaps.org/schemas/sitemap/0.9"
+image_ns = "http://www.google.com/schemas/sitemap-image/1.1"
 ET.register_namespace("", ns)
+ET.register_namespace("image", image_ns)
+
+# Preserve image URLs already associated with the service and portfolio pages,
+# then add the current product catalogue photos to the homepage image sitemap.
+image_entries: dict[str, list[tuple[str, str]]] = {}
+existing_sitemap = ROOT / "sitemap.xml"
+if existing_sitemap.is_file():
+    try:
+        existing_root = ET.parse(existing_sitemap).getroot()
+        for old_entry in existing_root.findall(f"{{{ns}}}url"):
+            old_loc = old_entry.find(f"{{{ns}}}loc")
+            if old_loc is None or not old_loc.text:
+                continue
+            collected = []
+            for old_image in old_entry.findall(f"{{{image_ns}}}image"):
+                image_loc = old_image.find(f"{{{image_ns}}}loc")
+                image_title = old_image.find(f"{{{image_ns}}}title")
+                if image_loc is not None and image_loc.text:
+                    collected.append((image_loc.text, image_title.text if image_title is not None and image_title.text else ""))
+            if collected:
+                image_entries[old_loc.text] = collected
+    except ET.ParseError:
+        print("Existing sitemap could not be parsed; rebuilding URL entries and catalogue image entries.")
+
+catalogue_image_titles: dict[str, str] = {}
+for item in products:
+    image_path = item.get("image")
+    if image_path:
+        image_url = "https://kazisafii.co.ke/" + str(image_path).lstrip("/")
+        catalogue_image_titles.setdefault(image_url, str(item.get("name", "Kazisafii print product")))
+
+home_url = "https://kazisafii.co.ke/"
+home_images = image_entries.setdefault(home_url, [])
+seen_home_images = {loc for loc, _ in home_images}
+for image_url, image_title in sorted(catalogue_image_titles.items()):
+    if image_url not in seen_home_images:
+        home_images.append((image_url, image_title))
+
 urlset = ET.Element(f"{{{ns}}}urlset")
 for url in sorted(urls):
     entry = ET.SubElement(urlset, f"{{{ns}}}url")
     ET.SubElement(entry, f"{{{ns}}}loc").text = url
     ET.SubElement(entry, f"{{{ns}}}lastmod").text = now
-    ET.SubElement(entry, f"{{{ns}}}changefreq").text = "weekly" if url.endswith("/") and url == "https://kazisafii.co.ke/" else "monthly"
-    ET.SubElement(entry, f"{{{ns}}}priority").text = "1.0" if url == "https://kazisafii.co.ke/" else "0.7"
+    ET.SubElement(entry, f"{{{ns}}}changefreq").text = "weekly" if url == home_url else "monthly"
+    ET.SubElement(entry, f"{{{ns}}}priority").text = "1.0" if url == home_url else "0.7"
+    for image_url, image_title in image_entries.get(url, []):
+        image_element = ET.SubElement(entry, f"{{{image_ns}}}image")
+        ET.SubElement(image_element, f"{{{image_ns}}}loc").text = image_url
+        if image_title:
+            ET.SubElement(image_element, f"{{{image_ns}}}title").text = image_title
 ET.indent(urlset, space="  ")
 ET.ElementTree(urlset).write(ROOT / "sitemap.xml", encoding="utf-8", xml_declaration=True)
 
