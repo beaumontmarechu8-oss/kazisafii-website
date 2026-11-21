@@ -1,0 +1,34 @@
+name: Restore the exact approved Kazisafii homepage
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/restore-approved-homepage.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  restore-approved-homepage:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out current main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Restore the exact approved homepage file
+        run: |
+          git show 6bfeb2b49d352be64dccceb181e061bcfececfe6:index.html > index.html
+          test "$(git hash-object index.html)" = "f263bc41db939a70ede22dd10266e418f43ec206"
+      - name: Commit homepage restoration
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Restore exact user-approved Kazisafii homepage"
+          git push origin HEAD:main
