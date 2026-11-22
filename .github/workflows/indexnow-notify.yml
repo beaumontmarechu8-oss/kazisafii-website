@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - main
+    paths:
+      - "index.html"
+      - "**/index.html"
+      - "sitemap.xml"
 
 permissions:
   contents: read
@@ -13,11 +17,12 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - name: Check out current sitemap and verification key
+      - name: Check out current site files and previous commit
         uses: actions/checkout@v4
         with:
           ref: main
-      - name: Submit all sitemap URLs to IndexNow
+          fetch-depth: 2
+      - name: Prepare changed page URLs
         shell: bash
         run: |
           set -euo pipefail
@@ -27,28 +32,74 @@ jobs:
           KEY="$(tr -d '\r\n' < "$KEY_FILE")"
           test -n "$KEY"
           export INDEXNOW_KEY="$KEY"
+          git diff --name-only HEAD^ HEAD > /tmp/changed-files.txt
           python - <<'PY' > /tmp/indexnow-payload.json
-          import json, os
+          import json
+          import os
+          import subprocess
           import xml.etree.ElementTree as ET
 
+          host = "kazisafii.co.ke"
           key = os.environ["INDEXNOW_KEY"]
-          tree = ET.parse("sitemap.xml")
-          namespace = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
-          urls = [
-              node.text.strip()
-              for node in tree.findall(".//sm:url/sm:loc", namespace)
-              if node.text and node.text.strip().startswith("https://kazisafii.co.ke/")
-          ]
+          base = f"https://{host}"
+          changed = set()
+
+          with open("/tmp/changed-files.txt", encoding="utf-8") as stream:
+              paths = [line.strip() for line in stream if line.strip()]
+
+          # Notify URLs whose HTML page file was added, edited, renamed or removed.
+          for path in paths:
+              if path == "index.html":
+                  changed.add(base + "/")
+              elif path.endswith("/index.html"):
+                  slug = path[:-len("/index.html")].strip("/")
+                  if slug and "/" not in slug:
+                      changed.add(f"{base}/{slug}/")
+
+          # Also compare the old and new sitemap so URL additions, removals and
+          # last-modified changes are notified even when only the sitemap changed.
+          if "sitemap.xml" in paths:
+              old = subprocess.run(
+                  ["git", "show", "HEAD^:sitemap.xml"],
+                  capture_output=True, text=True, check=True
+              ).stdout
+              new = open("sitemap.xml", encoding="utf-8").read()
+
+              ns = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+
+              def read_map(xml_text):
+                  root = ET.fromstring(xml_text)
+                  result = {}
+                  for entry in root.findall("sm:url", ns):
+                      loc = entry.findtext("sm:loc", default="", namespaces=ns).strip()
+                      lastmod = entry.findtext("sm:lastmod", default="", namespaces=ns).strip()
+                      if loc.startswith(base + "/"):
+                          result[loc] = lastmod
+                  return result
+
+              before = read_map(old)
+              after = read_map(new)
+              for url in set(before) | set(after):
+                  if before.get(url) != after.get(url):
+                      changed.add(url)
+
+          urls = sorted(changed)
           if not urls:
-              raise SystemExit("No Kazisafii URLs were found in sitemap.xml")
+              print("No changed Kazisafii page URLs were found; no notification needed.")
+              raise SystemExit(0)
+
+          print(f"Preparing {len(urls)} changed page URL(s) for IndexNow.", file=__import__("sys").stderr)
           print(json.dumps({
-              "host": "kazisafii.co.ke",
+              "host": host,
               "key": key,
-              "keyLocation": f"https://kazisafii.co.ke/{key}.txt",
-              "urlList": urls,
+              "keyLocation": f"{base}/{key}.txt",
+              "urlList": urls
           }))
-          print(f"Prepared {len(urls)} sitemap URLs for IndexNow submission.", file=__import__("sys").stderr)
           PY
+          if [[ ! -s /tmp/indexnow-payload.json ]]; then
+            echo "No IndexNow payload was created; nothing to submit."
+            exit 0
+          fi
           status="$(curl --silent --show-error --output /tmp/indexnow-response.txt \
             --write-out '%{http_code}' \
             --request POST \
