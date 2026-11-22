@@ -19,7 +19,9 @@ concurrency:
 
 jobs:
   update-homepage:
-    if: github.actor != 'github-actions[bot]'
+    # Safety lock: this legacy workflow edits the approved homepage layout.
+    # Keep disabled until its homepage-writing step is redesigned to leave index.html untouched.
+    if: false
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
