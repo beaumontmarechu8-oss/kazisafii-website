@@ -18,7 +18,9 @@ concurrency:
 
 jobs:
   build-site:
-    if: github.actor != 'github-actions[bot]'
+    # Safety lock: this legacy builder replaces index.html and can change the approved layout.
+    # Keep disabled until a separate, verified build can preserve the approved homepage byte-for-byte.
+    if: false
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
