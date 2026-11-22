@@ -1,0 +1,65 @@
+name: Notify search engines about Kazisafii service-page updates
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "sitemap.xml"
+      - "printing-services-nairobi/index.html"
+      - "books-and-journals-printing-nairobi/index.html"
+      - "drinkware-printing-nairobi/index.html"
+      - "graphic-design-services-nairobi/index.html"
+      - "stickers-and-signage-printing-nairobi/index.html"
+
+permissions:
+  contents: read
+
+jobs:
+  notify-indexnow:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out site files
+        uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Submit updated service URLs to IndexNow
+        shell: bash
+        run: |
+          set -euo pipefail
+          KEY_FILE="f72e341c05c04e8ea88cdbf8484d25d6.txt"
+          test -f "$KEY_FILE"
+          KEY="$(tr -d '\r\n' < "$KEY_FILE")"
+          test -n "$KEY"
+          export INDEXNOW_KEY="$KEY"
+          python - <<'PY' > /tmp/indexnow-payload.json
+          import json, os
+          key = os.environ["INDEXNOW_KEY"]
+          urls = [
+              "https://kazisafii.co.ke/printing-services-nairobi/",
+              "https://kazisafii.co.ke/books-and-journals-printing-nairobi/",
+              "https://kazisafii.co.ke/drinkware-printing-nairobi/",
+              "https://kazisafii.co.ke/graphic-design-services-nairobi/",
+              "https://kazisafii.co.ke/stickers-and-signage-printing-nairobi/",
+          ]
+          print(json.dumps({
+              "host": "kazisafii.co.ke",
+              "key": key,
+              "keyLocation": f"https://kazisafii.co.ke/{key}.txt",
+              "urlList": urls,
+          }))
+          PY
+          status="$(curl --silent --show-error --output /tmp/indexnow-response.txt \
+            --write-out '%{http_code}' \
+            --request POST \
+            --header 'Content-Type: application/json; charset=utf-8' \
+            --data-binary @/tmp/indexnow-payload.json \
+            --max-time 30 \
+            https://api.indexnow.org/indexnow)"
+          echo "IndexNow HTTP status: $status"
+          cat /tmp/indexnow-response.txt || true
+          if [[ "$status" != "200" && "$status" != "202" ]]; then
+            echo "IndexNow did not accept the submission."
+            exit 1
+          fi
